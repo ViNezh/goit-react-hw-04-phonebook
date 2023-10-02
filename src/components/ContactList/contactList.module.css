@@ -1,0 +1,38 @@
+.contactList {
+    padding-left: 20px;
+
+
+}
+
+.contactListItem {
+    display: flex;
+    justify-content: space-around;
+
+
+}
+
+.fieldName {
+
+    display: inline-flex;
+    margin-bottom: 8px;
+    margin-right: 3px;
+}
+
+.fieldNumber {
+
+    display: inline-flex;
+    margin-right: 15px;
+}
+
+.deleteBtn {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 5px;
+    height: min-content;
+    border-color: transparent;
+    cursor: pointer;
+    background-color: #eeeded;
+}
+
+.deleteBtn:hover {
+    background-color: #dddcdc;
+}
