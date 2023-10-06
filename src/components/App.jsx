@@ -5,11 +5,17 @@ import { ContactList } from './ContactList/contactList';
 import { Filter } from './Filter/filter';
 
 const App = () => {
+  // Створюємо hooks для списку контактів та фільтру
   const [contacts, setContacts] = useState(
     JSON.parse(localStorage.getItem('contacts')) ?? []
   );
 
   const [filter, setFilter] = useState('');
+// Hook для зміни списку контактів при додаванні нового чи видаленні існуючого
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
+
   // Функція додавання контактів в state
   const addContact = (name, number) => {
     const contact = {
@@ -34,17 +40,6 @@ const App = () => {
   const handleDelete = id => {
     setContacts(prevState => prevState.filter(contact => contact.id !== id));
   };
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
-
-  // useEffect(() => {
-  //   const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-  //   if (parsedContacts) {
-  //     setContacts(parsedContacts);
-  //   }
-  // }, [contacts]);
-
   const onVisibleList = visibleList();
   return (
     <>
